@@ -21,7 +21,7 @@ else
         <td><input type="text" name="name" value="" class="form-control"/></td>
     </tr>
 	<tr>
-        <td><input type="submit" name="btn" value="Search" class="btn btn-secondary"/></td>
+        <td><input type="submit" name="btn" value="Search" class="btn btn-warning"/></td>
     </tr>
     </div></span>
 </table>
@@ -41,12 +41,16 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
 
 ?>
 
-<center><h2>Description</h2></center>
+<center><h2 class="alert alert-secondary">Description</h2></center>
+<div><h4>Note the information before buying</h4></div>
 <table border="1" cellpadding="10" cellspacing="10" class="table" style="margin-top: 20px">
 	<tr>
     	<td>Serial no</td>
         <td><?php echo $row[7]?></td>
     </tr>
+    <tr>
+    	<td>Status</td>
+    	<td><h4><div class="badge badge-secondary badge-lg" style="vertical-align: middle;"><?php echo $row[0]?></div></h4></td>
 	<tr>
     	<td>Name of item</td>
         <td><?php echo $row[4]?></td>
@@ -87,7 +91,18 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
 		echo "<h1>No Record Found...</h1>";
 	}
 
-?><center>
-<a href="sell.php" class="btn btn-primary">Sell something</a></center>
-</body>
-</html>
+?>
+<?php
+if($name!=null and $result==true and mysqli_num_rows($result)>0)
+{
+?>
+<form action="buysql.php" method="post">
+	<input type="hidden" name="srno" id="srno" value="<?php echo $row[7];?>" />
+	<input type="hidden" name="nm" id="nm" value="<?php echo $row[6];?>" />
+
+<input type="submit" class="btn btn-primary" value="Buy this"></input></form></center><?php } ?> 
+<center>
+<a href="sell.php" class="btn btn-warning">Sell something</a></center>
+<?php 
+require_once("footer.php");
+?>

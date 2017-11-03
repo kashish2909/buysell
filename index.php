@@ -2,6 +2,7 @@
 require_once("headerlogin.php");
 session_start();
 ?>
+<div class="alert alert-secondary"><h1>Login</h1></div>
 <div class="container-fluid" style="margin-top: 75px;margin-bottom: 75px;">
 	<div class="row">
 		<div class="col-md-2">

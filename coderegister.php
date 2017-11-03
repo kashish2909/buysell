@@ -9,5 +9,5 @@ $phone=isset($_POST["phone_r"])?$_POST["phone_r"]:"";
 
 $querySelect="insert into logins(name,user,email,phone,pass) values('$name',$user,'$email',$phone,'$pass')";
 $result=mysqli_query($con,$querySelect);
-//echo $querySelect;
+header("location:index.php");
 ?>

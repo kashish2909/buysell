@@ -11,6 +11,12 @@ if($_SESSION["rollno"]!=NULL)
 else
     header("location:index.php");
 ?>
+<?php
+if(@$_GET['msg']==3)
+{
+    echo "This is already sold.";
+}
+?>
 <center>
 <table cellpadding="10" cellspacing="10" class="table table-bordered" style="vertical-align: middle;margin-top: 20px;margin-bottom: 20px">
 <thead class="thead-light">
@@ -18,6 +24,7 @@ else
     	<th>Name</th>
     	<th>Type</th>
     	<th>Price</th>
+        <th>Status</th>
         <th>Select Record</th>
     </tr>
 </thead>
@@ -36,6 +43,7 @@ if($result==true and mysqli_num_rows($result)>0)
     	<td><?php echo $row[4]?></td>
     	<td><?php echo $row[6]?></td>
     	<td><?php echo $row[2]?></td>
+        <td><center><h4><div class="badge badge-secondary badge-lg" style="vertical-align: middle;"><?php echo $row[0]?></div></h4></center></td>
         <td>
         <a class="btn btn-primary" href="SelectRecord.php?name=<?php echo $row[4]?>">
         	<div>View Description</div>

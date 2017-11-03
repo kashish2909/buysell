@@ -1,22 +1,13 @@
 <?php
-require_once("header.php");
+require_once("headerlogin.php");
 ?>
-<?php
-session_start();
-$uname="";
-if($_SESSION["rollno"]!=NULL)
-{
-    $uname=$_SESSION["rollno"];
-}
-else
-    header("location:index.php");
-?>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<h3 class="text-center">
+			<h3 class="text-center alert alert-secondary">
 				Register
 			</h3>
 			<form role="form" action="coderegister.php" method="post">
@@ -32,7 +23,7 @@ else
 					<label for="user_r">
 						Username
 					</label>
-					<input class="form-control" id="user_r" type="text" name="user_r"/>
+					<input class="form-control" id="user_r" type="text" name="user_r" placeholder="Enter your roll no" />
 				</div>
 				<div class="form-group">
 					 

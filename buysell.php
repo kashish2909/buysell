@@ -11,13 +11,13 @@ if($_SESSION["rollno"]!=NULL)
 else
 	header("location:index.php");
 ?>
-<h1>Welcome!!! <?php echo $uname?></h1>
+<h1><p class="alert alert-success">Welcome!!! <?php echo $uname?></p></h1>
 <a style="float: right;margin-top: 10px; margin-right: 10px" href="SelectRecord.php?msg=1" class="btn btn-warning"><img src="images/search.png" height="20px" width="20px"></img>  Search Record</a>
 <div class="container-fluid" style="margin-top: 100px; margin-bottom: 100px">
 	<div class="row">
 		<div class="col-md-2">
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4" style="margin-bottom: 30px">
 			 
 			<a class="btn btn-primary btn-lg btn-block" href="Display.php">
 				Buy
