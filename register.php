@@ -1,5 +1,6 @@
 <?php
 require_once("headerlogin.php");
+//this is a registration page
 ?>
 
 <div class="container-fluid">
