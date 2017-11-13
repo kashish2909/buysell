@@ -41,7 +41,7 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
 
 ?>
 
-<center><h2 class="alert alert-secondary">Description</h2></center>
+<center><h2 class="alert alert-secondary">Description of Item</h2></center>
 <div><h4>Note the information before buying</h4></div>
 <table border="1" cellpadding="10" cellspacing="10" class="table" style="margin-top: 20px">
 	<tr>
@@ -51,6 +51,10 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
     <tr>
     	<td>Status</td>
     	<td><h4><div class="badge badge-secondary badge-lg" style="vertical-align: middle;"><?php echo $row[0]?></div></h4></td>
+        <tr>
+        <td>Name of Seller</td>
+        <td><?php echo $row[12]?></td>
+    </tr>
 	<tr>
     	<td>Name of item</td>
         <td><?php echo $row[4]?></td>
@@ -93,14 +97,42 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
 
 ?>
 <?php
+$status="unsold";
 if($name!=null and $result==true and mysqli_num_rows($result)>0)
 {
+    if($row[0]==$status)
+    {
 ?>
-<form action="buysql.php" method="post">
+<form action="buyform.php" method="post">
 	<input type="hidden" name="srno" id="srno" value="<?php echo $row[7];?>" />
 	<input type="hidden" name="nm" id="nm" value="<?php echo $row[6];?>" />
 
-<input type="submit" class="btn btn-primary" value="Buy this"></input></form></center><?php } ?> 
+<input type="submit" class="btn btn-primary" value="Buy this"></input></form></center><?php 
+}
+else
+{?>
+    <center><h2 class="alert alert-secondary">Description of buyer</h2></center>
+<table border="1" cellpadding="10" cellspacing="10" class="table" style="margin-top: 20px">
+    <tr>
+        <td>Name</td>
+        <td><?php echo $row[8]?></td>
+    </tr>
+    <tr>
+        <td>Roll no</td>
+        <td><?php echo $row[9] ?></td>
+    <tr>
+        <td>Email</td>
+        <td><?php echo $row[10]?></td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td><?php echo $row[11]?></td>
+    </tr>
+</table>
+
+<?php }}
+ ?> 
+
 <center>
 <a href="sell.php" class="btn btn-warning">Sell something</a></center>
 <?php 

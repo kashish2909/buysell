@@ -8,6 +8,7 @@ $result=mysqli_query($con,$querySelect);
 if($result==true and mysqli_num_rows($result)>0)
 {
 	$_SESSION["rollno"]=$rollno;
+	
 	header("location:buysell.php");
 }
 else
