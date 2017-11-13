@@ -14,7 +14,7 @@ else
 <?php
 if(@$_GET['msg']==3)
 {
-    echo "This is already sold.";
+    echo "This is already sold.";//
 }
 ?>
 <a href="sell.php" class="btn btn-success btn-large" style="margin-top: 10px;margin-bottom: 10px;z-index:3;margin-right: 10px">Sell</a>
