@@ -24,6 +24,9 @@
   <body>
 
     <!-- Navigation -->
+    <?php 
+    session_start();
+    $name=$_SESSION["namelog"]; ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="buysell.php">Buy and Sell</a>
@@ -31,8 +34,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+          <div class="navbar-text"><img src="images/user1.png" height="20px" width="20px" style="border:1px solid black"></img>  <?php echo $name;?></div>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="buysell.php">Home
                 <span class="sr-only">(current)</span>
               </a>
@@ -41,7 +45,10 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="orders.php">My Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.php">My Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="Logout.php">Logout</a>

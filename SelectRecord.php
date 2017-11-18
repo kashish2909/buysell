@@ -2,7 +2,6 @@
 require_once("header.php");
 ?>
 <?php
-session_start();
 $uname="";
 if($_SESSION["rollno"]!=NULL)
 {
@@ -14,7 +13,7 @@ else
 <form action="SelectRecord.php" method="post">
 <table>
 	<span class="border border-primary">
-	<div class="form-group">
+	<!--<div class="form-group">
 		<h3>Search for an item</h3>
 	<tr>
     	<td><label for="name">Enter name</label></td>
@@ -23,7 +22,7 @@ else
 	<tr>
         <td><input type="submit" name="btn" value="Search" class="btn btn-warning"/></td>
     </tr>
-    </div></span>
+    </div>--></span>
 </table>
 </form>
 
@@ -52,8 +51,8 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
     	<td>Status</td>
     	<td><h4><div class="badge badge-secondary badge-lg" style="vertical-align: middle;"><?php echo $row[0]?></div></h4></td>
         <tr>
-        <td>Name of Seller</td>
-        <td><?php echo $row[12]?></td>
+        <td>Username of Seller</td>
+        <td><a href="info.php?user=<?php echo $row[12]?>"><?php echo $row[12]?></a></td>
     </tr>
 	<tr>
     	<td>Name of item</td>
@@ -96,6 +95,13 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
 	}
 
 ?>
+
+<?php
+    if(@$_REQUEST["message"]=="fail")
+    {
+        echo "<div class=\"alert alert-danger\">Seller cannot buy product</div>";
+    }
+    ?>
 <?php
 $status="unsold";
 if($name!=null and $result==true and mysqli_num_rows($result)>0)
@@ -103,14 +109,15 @@ if($name!=null and $result==true and mysqli_num_rows($result)>0)
     if($row[0]==$status)
     {
 ?>
-<form action="buyform.php" method="post">
+<form action="buycode.php" method="post" onsubmit="return confirm('Do you want to buy this?');">
 	<input type="hidden" name="srno" id="srno" value="<?php echo $row[7];?>" />
 	<input type="hidden" name="nm" id="nm" value="<?php echo $row[6];?>" />
 
-<input type="submit" class="btn btn-primary" value="Buy this"></input></form></center><?php 
+<input id="buy" type="submit" class="btn btn-primary" value="Buy this"></input></form></center><?php 
 }
 else
 {?>
+    
     <center><h2 class="alert alert-secondary">Description of buyer</h2></center>
 <table border="1" cellpadding="10" cellspacing="10" class="table" style="margin-top: 20px">
     <tr>
@@ -130,7 +137,22 @@ else
     </tr>
 </table>
 
-<?php }}
+
+
+<?php }
+$sold="sold";
+$unsold="unsold";
+$namesell=$_SESSION["namelog"];
+if($row[0]==$sold && $row[8]==$namesell)
+{?>
+    <a href="unbuy.php?sr=<?php echo $row[7];?>" class="alert alert-secondary" onclick="return confirm('Do you want to cancel this order?');">Cancel order</a>
+<?php }
+
+if($row[0]==$unsold && $row[12]==$namesell)
+{?><div align="right" style="margin-right: 30px;">
+    <a href="remove.php?sr=<?php echo $row[7];?>" class="alert alert-secondary" onclick="return confirm('Do you want to remove this ad?');">Remove Ad</a></div>
+<?php }
+}
  ?> 
 
 <center>

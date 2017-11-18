@@ -7,6 +7,7 @@ $price=isset($_POST["t3"])?$_POST["t3"]:"";
 $description=isset($_POST["t4"])?$_POST["t4"]:"";
 $type=isset($_POST["t5"])?$_POST["t5"]:"";
 $rn=$_SESSION["rollno"];
+$_SESSION["name"]=$name;
 $queryname="select name from logins where user=$rn";
 //echo $queryname;
 $res=mysqli_query($con,$queryname);
@@ -16,8 +17,9 @@ if($res==true and mysqli_num_rows($res)>0)
 	$nameseller=$row[0];
 }
 
-$querySelect="insert into product(status,date_pro,price,description,name,address,type_name,names) values('unsold',now(),$price,'$description','$name','$address','$type','$nameseller')";
-$result=mysqli_query($con,$querySelect);
-//echo $querySelect;
-header("location: buysell.php");
+
+
+$queryinsert="insert into product(status,date_pro,price,description,name,address,type_name,names) values('unsold',now(),$price,'$description','$name','$address','$type','$nameseller')";
+$result=mysqli_query($con,$queryinsert);
+header("location: sellcode.php");
 ?>

@@ -32,7 +32,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
@@ -40,9 +40,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
+            
           </ul>
         </div>
       </div>

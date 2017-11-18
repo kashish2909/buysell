@@ -2,7 +2,6 @@
 require_once("header.php");
 ?>
 <?php
-session_start();
 $uname="";
 if($_SESSION["rollno"]!=NULL)
 {
@@ -11,7 +10,6 @@ if($_SESSION["rollno"]!=NULL)
 else
     header("location:index.php");
 ?>
-<a href="Display.php" class="btn btn-success btn-large" style="margin-top: 10px;margin-bottom: 10px;z-index:3;margin-right: 10px">Buy</a>
 <h2 class="h2 text-center alert alert-secondary" style="z-index: 1">SALE YOUR PRODUCT</h2>
 <?php
 $msg=isset($_GET["msg"])?$_GET["msg"]:"";
@@ -52,7 +50,7 @@ else if($msg==2)
 <tr>
 	<td>Enter type of product</td>
 	<td><select name="t5">
-	<option>--Please Select--</option>
+	<option disabled="disabled" selected="true">--Please Select--</option>
         <?php
 require_once("DataConnection.php");
 $querySelect="select * from type";
