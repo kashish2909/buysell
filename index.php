@@ -47,5 +47,5 @@ if(@$_GET["msg"]==1)
 ?>
 </h4></font>
 <?php
-require_once("footer.php");
+require_once("footerlogin.php");
 ?>
