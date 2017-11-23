@@ -19,9 +19,10 @@ if(@$_GET['msg']==3)
 <center>
 
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search products" style="margin-top: 50px"></input>
-<table cellpadding="10" id="myTable" cellspacing="10" class="table table-bordered" style="vertical-align: middle;margin-top: 20px;margin-bottom: 20px">
+<table cellpadding="10" id="myTable" cellspacing="10" class="table table-bordered table-responsive" style="vertical-align: middle;margin-top: 20px;margin-bottom: 20px">
 <thead class="thead-light">
     <tr>
+      <th>Image</th>
     	<th>Name</th>
     	<th>Type</th>
     	<th>Price</th>
@@ -33,13 +34,18 @@ if(@$_GET['msg']==3)
 require_once("DataConnection.php");
 $querySelect="select * from product where status='unsold'";
 $result=mysqli_query($con,$querySelect);
+$queryimage="select * from imageData";
+$res=mysqli_query($con,$queryimage);
 
-if($result==true and mysqli_num_rows($result)>0)
+if($result==true and mysqli_num_rows($result)>0 and $res==true and mysqli_num_rows($res)>0)
 {
 	while($row=mysqli_fetch_array($result))
 	{
+    $row1=mysqli_fetch_array($res);
+    $name=$row1[0].".".$row1[3];
 		?>
 	<tr>
+    <td><img src="uploads/<?php echo $name?>" width="100" height="100"/></td>
     	<td><?php echo $row[4]?></td>
     	<td><?php echo $row[6]?></td>
     	<td><?php echo $row[2]?></td>

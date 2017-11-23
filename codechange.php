@@ -8,7 +8,7 @@ $email=isset($_POST["email_r"])?$_POST["email_r"]:"";
 $phone=isset($_POST["phone_r"])?$_POST["phone_r"]:"";
 $orname=isset($_POST["orname_r"])?$_POST["orname_r"]:"";
 
-$querycheck="select name,user,email from logins";
+$querycheck="select name,user,email from logins where name!='$name'";
 $res=mysqli_query($con,$querycheck);
 
 if($res==true and mysqli_num_rows($res)>0)
@@ -18,29 +18,28 @@ if($res==true and mysqli_num_rows($res)>0)
 		if($row[0]==$name)
 		{
 			$err="dup1";
-			header("location:register.php?err=$err");
+			header("location:changeset.php?err=$err");
 			break;
 		}
 		else
 		if($row[1]==$user)
 		{
 			$err="dup2";
-			header("location:register.php?err=$err");
+			header("location:changeset.php?err=$err");
 			break;
 		}
 		else
 		if($row[0]==$email)
 		{
 			$err="dup3";
-			header("location:register.php?err=$err");
+			header("location:changeset.php?err=$err");
 			break;
 		}
 		else
 		{
-			$querySelect="insert into logins(name,user,email,phone,pass,orname) values('$name',$user,'$email',$phone,'$pass','$orname')";
+			$querySelect="update logins set name='$name',user=$user,email='$email',phone='$phone',pass='$pass',orname='$orname' where name='$name'";
 			$result=mysqli_query($con,$querySelect);
-			if($result=true)
-			header("location:index.php");
+			header("location:buysell.php");
 		}
 	}
 }

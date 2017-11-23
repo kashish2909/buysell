@@ -42,6 +42,20 @@ $action=isset($_POST["btn"])?$_POST["btn"]:"";
 
 <center><h2 class="alert alert-secondary">Description of Item</h2></center>
 <div><h4>Note the information before buying</h4></div>
+<?php 
+$queryimage="select * from imageData,product where title='$name'";
+$res=mysqli_query($con,$queryimage);
+
+if($res==true and mysqli_num_rows($res)>0)
+{
+    $row1=mysqli_fetch_array($res);
+    $name=$row1[0].".".$row1[3];
+        ?>
+        <center>
+    <img src="uploads/<?php echo $name?>" width="30%" height="30%"/></center>
+    <?php
+}
+    ?>
 <table border="1" cellpadding="10" cellspacing="10" class="table" style="margin-top: 20px">
 	<tr>
     	<td>Serial no</td>

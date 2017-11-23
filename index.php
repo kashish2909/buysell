@@ -1,6 +1,5 @@
 <?php
 require_once("headerlogin.php");
-session_start();
 ?>
 <div class="alert alert-secondary"><h1>Login</h1></div>
 <div class="container-fluid" style="margin-top: 75px;margin-bottom: 75px;">
@@ -30,6 +29,7 @@ session_start();
 			</form>
 			<br/>
 			<a href="register.php">Register</a>
+			<a href="forgot.php" style="float: right;">Forgot Password?</a>
 		</div>
 		<div class="col-md-2">
 		</div>

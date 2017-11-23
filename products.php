@@ -59,6 +59,15 @@ if($result==true and mysqli_num_rows($result)>0)
         <?php
 	}
 }
+else
+{
+  ?>
+  <div style="color: red;font-size: 30px;">
+  <?php
+  echo "You have nothing to sell";
+}?>
+</div>
+<?php
 
 mysqli_close($con);
 	?>

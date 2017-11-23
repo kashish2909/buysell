@@ -23,7 +23,7 @@ else if($msg==2)
 }
 ?>
 </h1>
-<form action="sellinsert.php" method="post">
+<form action="sellinsert.php" method="post" enctype="multipart/form-data">
 <table cellpadding="10" cellspacing="10" class="table">
 <tr>
 <td>Name</td>
@@ -68,7 +68,14 @@ if($result==true and mysqli_num_rows($result)>0)
 		?>
     
 </select></td>
-
+<tr>
+    	<td>
+        	Select File
+        </td>
+    	<td>
+        	<input type="file" name="f1" id="f1"/>
+        </td>
+    </tr>
 <tr>
 <td colspan="2">
 <input class="btn btn-primary" type="submit" name="btn" value="Sell"/></td>

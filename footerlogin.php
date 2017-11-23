@@ -2,7 +2,7 @@
 	<center>
       <div class="container test">
       
-      <span class="m-0 text-center text-white">Copyright &copy;Kashish Bansal</span>
+      <span class="m-0 text-center text-white">Made by: Kashish Bansal</span>
       </div>
       </center>
       <!-- /.container -->

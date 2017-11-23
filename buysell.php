@@ -3,6 +3,7 @@ require_once("header.php");
 ?>
 <?php
 $uname="";
+
 if($_SESSION["rollno"]!=NULL)
 {
 	$uname=$_SESSION["rollno"];

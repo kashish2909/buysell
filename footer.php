@@ -4,7 +4,7 @@
       	<span><a href="Display.php" class="btn btn-success btn-large left" style="float:left;">Buy</a></span>
         
       <span><a href="sell.php" class="btn btn-success btn-large right" style="float:right;">Sell</a></span>
-      <span class="m-0 text-center text-white">Copyright &copy;Kashish Bansal</span>
+      <span class="m-0 text-center text-white">Made by: Kashish Bansal</span>
       </div>
       </center>
       <!-- /.container -->

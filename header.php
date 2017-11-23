@@ -43,13 +43,16 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="orders.php">My Orders</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="products.php">My Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="changeset.php">Change info</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="Logout.php">Logout</a>
