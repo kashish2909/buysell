@@ -60,7 +60,7 @@ if($resmail==true and mysqli_num_rows($resmail)>0)
 	$rowmail=mysqli_fetch_array($resmail);
 	$to=$rowmail[0];
 	$subject="Product Bought";
-	$message="Someone has brought your product. Go, check out!"
+	$message="Someone has bought your product. Go, check out!";
 	mail($to,$subject,$message);
 }
 ?>

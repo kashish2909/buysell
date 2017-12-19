@@ -49,7 +49,7 @@ $res=mysqli_query($con,$queryimage);
 if($res==true and mysqli_num_rows($res)>0)
 {
     $row1=mysqli_fetch_array($res);
-    $name=$row1[0].".".$row1[3];
+    $name=$row[4].".".$row1[3];
         ?>
         <center>
     <img src="uploads/<?php echo $name?>" width="30%" height="30%"/></center>

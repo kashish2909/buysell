@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("DataConnection.php");
+echo $_FILES["f1"]["error"];
 if($_FILES["f1"]["error"]==0)
 {
 	$FileName=$_FILES["f1"]["name"];
@@ -11,7 +12,7 @@ if($_FILES["f1"]["error"]==0)
 	$extname = pathinfo($FileName,PATHINFO_EXTENSION);
 		$strInsert="insert into imageData(title,ImageName,ext,uploadDate) values('$title','$FileName','$extname',now())";	
 
-	if($extname=="jpg")
+	if($extname=="jpg" or $extname=="png" or $extname="jpeg")
 	{
 		$result=mysqli_query($con,$strInsert);
 		if($result==true)
@@ -19,7 +20,7 @@ if($_FILES["f1"]["error"]==0)
 		$pid = mysqli_insert_id($con);
 		$strid="update imageData set id=$pid where title='$title'";
 		mysqli_query($con,$strid);
-		$pathName = "uploads/" .  $pid  . "." . $extname;
+		$pathName = "uploads/" .  $title  . "." . $extname;
 		move_uploaded_file($Path,$pathName);
 		}
 	}

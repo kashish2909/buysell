@@ -19,7 +19,7 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="shortcut icon" href="images/index.png" />
-
+    <link href="css/displaypro.css" rel="stylesheet">
   </head>
 
   <body>
@@ -35,7 +35,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <div class="navbar-text"><img src="images/user1.png" height="20px" width="20px" style="border:1px solid black"></img>  <?php echo $name;?></div>
+          <a href="info.php?user=<?php echo $name ?>"><div class="navbar-text"><img src="images/user1.png" height="20px" width="20px" style="border:1px solid black"></img>  <?php echo $name;?></a></div>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="buysell.php">Home
